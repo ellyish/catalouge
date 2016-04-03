@@ -1,0 +1,136 @@
+<header class="header header-transparent header-waterfall">
+    <a class="header-affix-hide header-logo " data-offset-top="213" data-spy="affix" href="/">SWEN GUIDE</a>
+    <span class="header-affix header-logo " data-offset-top="213" data-spy="affix">SWEN GUIDE</span>
+</header>
+<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
+    <div class="menu-scroll">
+        <div class="menu-content">
+            <ul class="nav">
+                <li>
+                    <a class="waves-attach"  href="/login">دخول الادارة</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="content">
+<div class="content-heading">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+                <h1 class="heading">دليل الخصومات </h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+            <section class="content-inner margin-top-no">
+                <div class="card">
+                    <div class="card-main">
+                        <div class="card-inner tcenter">
+                            <p>
+                                هذا الدليل يحتوي على جميع المحلات والشركات التي توفر خصومات من خلال بطاقة سوين
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+            <span id="contains">
+                <table class="table table-bordered">
+                    <tbody>
+                        <ul>
+                            <% for(var i=0; i<types.length; i++) {%>
+                            <tr>
+                                <td><a href="/viewMerchant/<%= types[i].id %>"> <i class="fa <%= types[i].icon %> fa-3x vcenter"></i> &nbsp; <%= types[i].name %></a></td>
+                            </tr>
+                            <% } %>
+                        </ul>
+                    </tbody>
+                </table>
+                <div aria-hidden="true" class="modal fade" id="doc_modal_example_default" role="dialog" tabindex="-1" style="display: none;">
+                    <div class="modal-dialog modal-xs">
+                        <div class="modal-content">
+                            <div class="modal-heading">
+                                <a class="modal-close" data-dismiss="modal">×</a>
+                                <h2 class="modal-title">ادخل تفاصيل التاجر</h2>
+                            </div>
+                            <div class="modal-inner">
+                                <div class="form-group form-group-label">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-push-1">
+                                            <label for="merchant_name">اسم المحل</label>
+                                            <input name="name" class="form-control" id="merchant_name" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-push-1">
+                                            <label  for="merchant_offer">العرض</label>
+                                            <input name="offer" class="form-control" id="merchant_offer" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-push-1">
+                                            <label  for="merchant_location">عنوان المحل</label>
+                                            <input name="location" class="form-control" id="merchant_location" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-push-1">
+                                            <label  for="merchant_file">شعار المحل</label>
+                                            <input name="file" class="form-control" id="merchant_file" type="file">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group-label">
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-push-1">
+                                            <select id="merchant_type">
+
+                            <% for(var i=0; i<types.length; i++) {%>
+                                                <option value="<%= types[i].id %>"><%= types[i].name %></option>
+                            <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <p class="text-right">
+                                    <button class="btn btn-flat btn-brand waves-attach waves-button waves-effect" data-dismiss="modal" type="button">اغلاق</button>
+                                    <button onclick="saveData()" id="btn-save" class="btn btn-flat btn-brand waves-attach waves-button waves-effect" data-dismiss="modal" type="button">حفظ</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    
+</div>
+</main>
+
+
+
+<% if(loggedin){ %>
+
+<div class="fbtn-container">
+    <div class="fbtn-inner">
+        <a id="showDialog" data-toggle="modal" href="#doc_modal_example_default" class="fbtn fbtn-brand-accent fbtn-lg"><span class="fbtn-text">Links</span><span class="fbtn-ori icon">add</span></a>
+    </div>
+</div>
+
+ <% } %>

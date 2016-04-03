@@ -1,0 +1,80 @@
+<header class="header header-transparent header-waterfall">
+  <a class="header-affix-hide header-logo " data-offset-top="213" data-spy="affix" href="/">SWEN GUIDE</a>
+  <span class="header-affix header-logo " data-offset-top="213" data-spy="affix">SWEN GUIDE</span>
+</header>
+<nav aria-hidden="true" class="menu" id="doc_menu" tabindex="-1">
+  <div class="menu-scroll">
+    <div class="menu-content">
+      <ul class="nav">
+        <li>
+          <a class="waves-attach"  href="/login">دخول الادارة</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<main class="content">
+<div class="content-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+        <h1 class="heading">دليل الخصومات</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+      <section class="content-inner margin-top-no">
+        <div class="card">
+          <div class="card-main">
+            <div class="card-inner tcenter">
+              <p>
+                هذا الدليل يحتوي على جميع المحلات والشركات التي توفر خصومات من خلال بطاقة سوين
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+      <span id="contains">
+        
+        <div class="row">
+          <% for(var i=0; i<merchants.length; i++) {%>
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-main">
+                <div class="card-img">
+                  <img width="100%" src="/images/<%= merchants[i].img %>">
+                  <p class="card-img-heading"> <%= merchants[i].name %> </p>
+                </div>
+                <div class="card-inner"> <%= merchants[i].offer %> <br>
+                  <%= merchants[i].location %>
+                </div>
+                <% if(loggedin){ %>
+
+                <div class="card-action">
+                  <ul class="margin-no nav nav-list pull-right">
+                    <li class="dropdown">
+                      <a href="/deleteMerchant/<%= merchants[i].id %>" class="text-black waves-attach waves-effect" ><span class="icon">delete</span></a>
+                    </li>
+                  </ul>
+                </div>
+
+                 <% } %>
+
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </span>
+    </div>
+  </div>
+  
+</div>
+</main>
